@@ -9,3 +9,4 @@ class MyDescriptionSerializers(serializers.ModelSerializer):
         fields = (
             'id','nome','idade','descricao'
         )
+        

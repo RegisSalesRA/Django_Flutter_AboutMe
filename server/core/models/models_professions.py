@@ -6,4 +6,4 @@ class Trabalhos(models.Model):
 
 class Faculdades(models.Model):
     nome = models.CharField(max_length=100)
-    curso = models.CharField(max_length=100)    
+    curso = models.CharField(max_length=100)
