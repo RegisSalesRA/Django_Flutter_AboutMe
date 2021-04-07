@@ -13,42 +13,76 @@ class _HobbiesState extends State<Hobbies> {
         child: GridView.count(
       crossAxisCount: 2,
       children: [
-        GestureDetector(
-          onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Musicas()));
-          },
-          child: Icon(
-            Icons.queue_music,
-            size: 150,
-            color: Colors.blue,
+        InkWell(
+          splashColor: Colors.blue, // splash color
+          onTap: () {}, // button pressed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.airplanemode_active,
+                size: 150,
+                color: Colors.blue,
+              ), // icon
+              Text("Viagens"), // text
+            ],
           ),
         ),
-        GestureDetector(
-          onTap: () {},
-          child: Icon(
-            Icons.ac_unit,
-            size: 150,
-            color: Colors.blue,
+        InkWell(
+          splashColor: Colors.blue, // splash color
+          onTap: () {}, // button pressed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.local_movies,
+                size: 150,
+                color: Colors.blue,
+              ), // icon
+              Text("Movies"), // text
+            ],
           ),
         ),
-        GestureDetector(
-          onTap: () {},
-          child: Icon(
-            Icons.ac_unit,
-            size: 150,
-            color: Colors.blue,
+        InkWell(
+          splashColor: Colors.blue, // splash color
+          onTap: () {}, // button pressed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.queue_music,
+                size: 150,
+                color: Colors.blue,
+              ), // icon
+              Text("Musicas"), // text
+            ],
           ),
         ),
-        GestureDetector(
-          onTap: () {},
-          child: Icon(
-            Icons.ac_unit,
-            size: 150,
-            color: Colors.blue,
+        InkWell(
+          splashColor: Colors.blue, // splash color
+          onTap: () {}, // button pressed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.games,
+                size: 150,
+                color: Colors.blue,
+              ), // icon
+              Text("Games"), // text
+            ],
           ),
         ),
       ],
     ));
   }
 }
+
+/*
+           Icons.games,
+            
+            Icons.queue_music,
+            
+            Icons.local_movies,
+            Icons.airplanemode_active,
+            */

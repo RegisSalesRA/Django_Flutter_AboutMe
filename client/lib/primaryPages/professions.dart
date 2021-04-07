@@ -1,3 +1,4 @@
+import 'package:client/secondaryPages/musica.dart';
 import 'package:flutter/material.dart';
 
 class Professions extends StatefulWidget {
@@ -9,7 +10,40 @@ class _ProfessionsState extends State<Professions> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Terceira pagina"),
-    );
+        child: GridView.count(
+      crossAxisCount: 2,
+      children: [
+        InkWell(
+          splashColor: Colors.blue, // splash color
+          onTap: () {}, // button pressed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.school,
+                size: 150,
+                color: Colors.blue,
+              ), // icon
+              Text("School"), // text
+            ],
+          ),
+        ),
+        InkWell(
+          splashColor: Colors.blue, // splash color
+          onTap: () {}, // button pressed
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.work,
+                size: 150,
+                color: Colors.blue,
+              ), // icon
+              Text("Jobs"), // text
+            ],
+          ),
+        ),
+      ],
+    ));
   }
 }
