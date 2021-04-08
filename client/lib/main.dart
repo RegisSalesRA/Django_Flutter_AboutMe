@@ -1,6 +1,6 @@
 import 'package:client/pages/index.dart';
 import 'package:client/pages/login.dart';
-import 'package:client/secondaryPages/musica.dart';
+import 'package:client/secondaryPages/musicas.dart';
 import 'package:flutter/material.dart';
 
 void main() {

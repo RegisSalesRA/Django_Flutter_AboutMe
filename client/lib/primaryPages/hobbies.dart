@@ -1,4 +1,7 @@
-import 'package:client/secondaryPages/musica.dart';
+import 'package:client/secondaryPages/filmes.dart';
+import 'package:client/secondaryPages/games.dart';
+import 'package:client/secondaryPages/musicas.dart';
+import 'package:client/secondaryPages/viagens.dart';
 import 'package:flutter/material.dart';
 
 class Hobbies extends StatefulWidget {
@@ -15,7 +18,10 @@ class _HobbiesState extends State<Hobbies> {
       children: [
         InkWell(
           splashColor: Colors.blue, // splash color
-          onTap: () {}, // button pressed
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => Viagens()));
+          }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -30,7 +36,10 @@ class _HobbiesState extends State<Hobbies> {
         ),
         InkWell(
           splashColor: Colors.blue, // splash color
-          onTap: () {}, // button pressed
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => Filme()));
+          }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -45,7 +54,10 @@ class _HobbiesState extends State<Hobbies> {
         ),
         InkWell(
           splashColor: Colors.blue, // splash color
-          onTap: () {}, // button pressed
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => Musicas()));
+          }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -60,7 +72,10 @@ class _HobbiesState extends State<Hobbies> {
         ),
         InkWell(
           splashColor: Colors.blue, // splash color
-          onTap: () {}, // button pressed
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => Game()));
+          }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

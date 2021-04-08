@@ -1,4 +1,6 @@
-import 'package:client/secondaryPages/musica.dart';
+import 'package:client/secondaryPages/faculdades.dart';
+import 'package:client/secondaryPages/jobs.dart';
+import 'package:client/secondaryPages/musicas.dart';
 import 'package:flutter/material.dart';
 
 class Professions extends StatefulWidget {
@@ -15,7 +17,10 @@ class _ProfessionsState extends State<Professions> {
       children: [
         InkWell(
           splashColor: Colors.blue, // splash color
-          onTap: () {}, // button pressed
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => Faculdade()));
+          }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -30,7 +35,10 @@ class _ProfessionsState extends State<Professions> {
         ),
         InkWell(
           splashColor: Colors.blue, // splash color
-          onTap: () {}, // button pressed
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => Trabalho()));
+          }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

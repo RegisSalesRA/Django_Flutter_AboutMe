@@ -23,7 +23,8 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Abas"),
+        centerTitle: true,
+        title: Text("About me"),
         bottom: TabBar(
           controller: _tabController,
           tabs: [
