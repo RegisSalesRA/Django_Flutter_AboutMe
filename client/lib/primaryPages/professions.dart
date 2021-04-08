@@ -29,7 +29,14 @@ class _ProfessionsState extends State<Professions> {
                 size: 150,
                 color: Colors.blue,
               ), // icon
-              Text("School"), // text
+              Text(
+                "Faculdades",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ), // text
             ],
           ),
         ),
@@ -47,7 +54,14 @@ class _ProfessionsState extends State<Professions> {
                 size: 150,
                 color: Colors.blue,
               ), // icon
-              Text("Jobs"), // text
+              Text(
+                "Trabalhos",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ), // text
             ],
           ),
         ),

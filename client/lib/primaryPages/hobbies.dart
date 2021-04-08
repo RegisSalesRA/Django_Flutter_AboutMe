@@ -30,7 +30,14 @@ class _HobbiesState extends State<Hobbies> {
                 size: 150,
                 color: Colors.blue,
               ), // icon
-              Text("Viagens"), // text
+              Text(
+                "Viagens",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ), // text
             ],
           ),
         ),
@@ -48,7 +55,14 @@ class _HobbiesState extends State<Hobbies> {
                 size: 150,
                 color: Colors.blue,
               ), // icon
-              Text("Movies"), // text
+              Text(
+                "Filmes",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ) // text
             ],
           ),
         ),
@@ -66,7 +80,14 @@ class _HobbiesState extends State<Hobbies> {
                 size: 150,
                 color: Colors.blue,
               ), // icon
-              Text("Musicas"), // text
+              Text(
+                "Musicas",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic), // text
+              )
             ],
           ),
         ),
@@ -84,7 +105,14 @@ class _HobbiesState extends State<Hobbies> {
                 size: 150,
                 color: Colors.blue,
               ), // icon
-              Text("Games"), // text
+              Text(
+                "Games",
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic),
+              ), // text
             ],
           ),
         ),
@@ -92,12 +120,3 @@ class _HobbiesState extends State<Hobbies> {
     ));
   }
 }
-
-/*
-           Icons.games,
-            
-            Icons.queue_music,
-            
-            Icons.local_movies,
-            Icons.airplanemode_active,
-            */
