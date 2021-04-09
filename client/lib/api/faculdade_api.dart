@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:client/model/faculdade_model.dart';
-import 'package:client/model/trabalho_model.dart';
 
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -18,7 +17,7 @@ class FaculdadeProvider with ChangeNotifier {
     return [..._my_faculdade];
   }
 
-  void addTrabalho(FaculdadeModel my_faculdade) async {
+  void addFaculdade(FaculdadeModel my_faculdade) async {
     final response = await http.post('http://10.0.2.2:8000/api/v1/faculdades/',
         headers: {"Content-Type": "application/json"},
         body: json.encode(my_faculdade));
@@ -30,7 +29,7 @@ class FaculdadeProvider with ChangeNotifier {
     }
   }
 
-  void deleteViagens(FaculdadeModel my_faculdade) async {
+  void deleteFaculdade(FaculdadeModel my_faculdade) async {
     final response = await http
         .delete('http://10.0.2.2:8000/api/v1/faculdades/${my_faculdade.id}/');
     if (response.statusCode == 204) {

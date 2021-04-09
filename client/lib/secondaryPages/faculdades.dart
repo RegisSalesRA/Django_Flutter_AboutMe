@@ -42,7 +42,7 @@ class _FaculdadeHomePageState extends State<FaculdadeHomePage> {
               direction: DismissDirection.endToStart,
               key: Key(faculdadeMy.my_faculdade[index].nome),
               onDismissed: (direction) {
-                faculdadeMy.deleteViagens(faculdadeMy.my_faculdade[index]);
+                faculdadeMy.deleteFaculdade(faculdadeMy.my_faculdade[index]);
               },
               background: Container(
                 color: Colors.red,

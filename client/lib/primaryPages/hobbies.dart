@@ -17,105 +17,133 @@ class _HobbiesState extends State<Hobbies> {
       crossAxisCount: 2,
       children: [
         InkWell(
-          splashColor: Colors.blue, // splash color
-          onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Viagens()));
-          }, // button pressed
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.airplanemode_active,
-                size: 150,
-                color: Colors.blue,
-              ), // icon
-              Text(
-                "Viagens",
-                style: TextStyle(
+            splashColor: Colors.blue, // splash color
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => Viagens()));
+            }, // button pressed
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blue, //                   <--- border color
+                  width: 5.0,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    Icons.airplanemode_active,
+                    size: 150,
                     color: Colors.blue,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic),
-              ), // text
-            ],
-          ),
-        ),
+                  ), // icon
+                  Text(
+                    "Viagens",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ), // text
+                ],
+              ),
+            )),
         InkWell(
-          splashColor: Colors.blue, // splash color
-          onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Filmes()));
-          }, // button pressed
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.local_movies,
-                size: 150,
-                color: Colors.blue,
-              ), // icon
-              Text(
-                "Filmes",
-                style: TextStyle(
+            splashColor: Colors.blue, // splash color
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => Filmes()));
+            }, // button pressed
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blue, //                   <--- border color
+                  width: 5.0,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    Icons.local_movies,
+                    size: 150,
                     color: Colors.blue,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic),
-              ) // text
-            ],
-          ),
-        ),
+                  ), // icon
+                  Text(
+                    "Filmes",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ), // text
+                ],
+              ),
+            )),
         InkWell(
-          splashColor: Colors.blue, // splash color
-          onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Musicas()));
-          }, // button pressed
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.queue_music,
-                size: 150,
-                color: Colors.blue,
-              ), // icon
-              Text(
-                "Musicas",
-                style: TextStyle(
+            splashColor: Colors.blue, // splash color
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => Musicas()));
+            }, // button pressed
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blue, //                   <--- border color
+                  width: 5.0,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    Icons.queue_music,
+                    size: 150,
                     color: Colors.blue,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic), // text
-              )
-            ],
-          ),
-        ),
+                  ), // icon
+                  Text(
+                    "Musicas",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ), // text
+                ],
+              ),
+            )),
         InkWell(
-          splashColor: Colors.blue, // splash color
-          onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Games()));
-          }, // button pressed
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.games,
-                size: 150,
-                color: Colors.blue,
-              ), // icon
-              Text(
-                "Games",
-                style: TextStyle(
+            splashColor: Colors.blue, // splash color
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => Games()));
+            }, // button pressed
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.blue, //                   <--- border color
+                  width: 5.0,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Icon(
+                    Icons.games,
+                    size: 150,
                     color: Colors.blue,
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic),
-              ), // text
-            ],
-          ),
-        ),
+                  ), // icon
+                  Text(
+                    "Games",
+                    style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic),
+                  ), // text
+                ],
+              ),
+            )),
       ],
     ));
   }

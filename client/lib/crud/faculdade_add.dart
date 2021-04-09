@@ -23,7 +23,7 @@ class _AddFaculdadeState extends State<AddFaculdade> {
       final FaculdadeModel myFaculdade =
           FaculdadeModel(nome: nomeVal, curso: cursoVal);
       Provider.of<FaculdadeProvider>(context, listen: false)
-          .addTrabalho(myFaculdade);
+          .addFaculdade(myFaculdade);
     }
   }
 
