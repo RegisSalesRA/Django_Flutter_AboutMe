@@ -8,6 +8,7 @@ class Viagens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
+      //Never forget to put providader context
       create: (context) => ViagensProvider(),
       child: MaterialApp(
         home: ViagemHomePage(),
@@ -33,6 +34,8 @@ class _ViagemHomePageState extends State<ViagemHomePage> {
         title: Text("Viagens Marcantes"),
       ),
       body: ListView.builder(
+        // viagensMy is final viagensMy get a valor from Provider
+        // my_viagem is list from api value
         itemCount: viagensMy.my_viagem.length,
         itemBuilder: (BuildContext context, int index) {
           return Dismissible(

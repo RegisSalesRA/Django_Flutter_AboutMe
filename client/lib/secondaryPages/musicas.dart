@@ -1,89 +1,96 @@
+import 'package:client/api/musicas_api.dart';
+import 'package:client/crud/musica_add.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Musicas extends StatefulWidget {
-  @override
-  _MusicasState createState() => _MusicasState();
-}
-
-class _MusicasState extends State<Musicas> {
-  final items = List<String>.generate(5, (i) => "Item ${i + 1}");
-  final title = "Musicas";
+class Musicas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      //Never forget to put providader context
+      create: (context) => MusicasProvider(),
+      child: MaterialApp(
+        home: MusicasHomePage(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+}
+
+class MusicasHomePage extends StatefulWidget {
+  @override
+  _MusicasHomePageState createState() => _MusicasHomePageState();
+}
+
+class _MusicasHomePageState extends State<MusicasHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    final musicasMy = Provider.of<MusicasProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(title),
+        title: Text("Viagens Marcantes"),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      body: ListView.builder(
+        // musicasMy is final musicasMy get a valor from Provider
+        // my_musica is list from api value
+        itemCount: musicasMy.my_musica.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Dismissible(
+              direction: DismissDirection.endToStart,
+              key: Key(musicasMy.my_musica[index].nome),
+              onDismissed: (direction) {
+                musicasMy.deleteViagens(musicasMy.my_musica[index]);
+              },
+              background: Container(
+                color: Colors.red,
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+              child: ListTile(
+                trailing: Text(
+                  musicasMy.my_musica[index].album,
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                title: Text(
+                  musicasMy.my_musica[index].nome,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(musicasMy.my_musica[index].descricao,
+                    style: TextStyle(
+                        color: Colors.blue, fontStyle: FontStyle.italic)),
+              ));
+        },
+      ),
+
+//      BOTAO DE ADICIONAR
       floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.add,
-            color: Colors.white,
+            size: 30,
           ),
-          backgroundColor: Colors.blue,
           onPressed: () {
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text("Adicionar Tarefa"),
-                    content: TextField(
-                      //     controller: _controllerTarefa,
-                      decoration:
-                          InputDecoration(labelText: "Digite sua tarefa"),
-                      onChanged: (text) {},
-                    ),
-                    actions: <Widget>[
-                      FlatButton(
-                        child: Text("Cancelar"),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      FlatButton(
-                        child: Text("Salvar"),
-                        onPressed: () {
-                          print("Salvar");
-                          Navigator.pop(context);
-                        },
-                      )
-                    ],
-                  );
-                });
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => AddMusicas()));
           }),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-
-          return Dismissible(
-            direction: DismissDirection.endToStart,
-            key: Key(item),
-            onDismissed: (direction) {
-              setState(() {
-                items.removeAt(index);
-              });
-            },
-            background: Container(
-              color: Colors.red,
-              padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.delete,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            ),
-            child: ListTile(
-              title: Text('$item'),
-              subtitle: Text("subtitle"),
-            ),
-          );
-        },
-      ),
+      //FIM BOTAO DE ADICIONAR
     );
   }
 }

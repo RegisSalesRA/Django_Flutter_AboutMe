@@ -1,89 +1,96 @@
+import 'package:client/api/games_api.dart';
+import 'package:client/crud/games_add.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Game extends StatefulWidget {
-  @override
-  _GameState createState() => _GameState();
-}
-
-class _GameState extends State<Game> {
-  final items = List<String>.generate(5, (i) => "Item ${i + 1}");
-  final title = "Games";
+class Games extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      //Never forget to put providader context
+      create: (context) => GamesProvider(),
+      child: MaterialApp(
+        home: GamesHomePage(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+}
+
+class GamesHomePage extends StatefulWidget {
+  @override
+  _GamesHomePageState createState() => _GamesHomePageState();
+}
+
+class _GamesHomePageState extends State<GamesHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    final gamesMy = Provider.of<GamesProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(title),
+        title: Text("Viagens Marcantes"),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      body: ListView.builder(
+        // gamesMy is final gamesMy get a valor from Provider
+        // my_game is list from api value
+        itemCount: gamesMy.my_games.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Dismissible(
+              direction: DismissDirection.endToStart,
+              key: Key(gamesMy.my_games[index].nome),
+              onDismissed: (direction) {
+                gamesMy.deleteGames(gamesMy.my_games[index]);
+              },
+              background: Container(
+                color: Colors.red,
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+              child: ListTile(
+                trailing: Text(
+                  gamesMy.my_games[index].genero,
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                title: Text(
+                  gamesMy.my_games[index].nome,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(gamesMy.my_games[index].descricao,
+                    style: TextStyle(
+                        color: Colors.blue, fontStyle: FontStyle.italic)),
+              ));
+        },
+      ),
+
+//      BOTAO DE ADICIONAR
       floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.add,
-            color: Colors.white,
+            size: 30,
           ),
-          backgroundColor: Colors.blue,
           onPressed: () {
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text("Adicionar Tarefa"),
-                    content: TextField(
-                      //     controller: _controllerTarefa,
-                      decoration:
-                          InputDecoration(labelText: "Digite sua tarefa"),
-                      onChanged: (text) {},
-                    ),
-                    actions: <Widget>[
-                      FlatButton(
-                        child: Text("Cancelar"),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      FlatButton(
-                        child: Text("Salvar"),
-                        onPressed: () {
-                          print("Salvar");
-                          Navigator.pop(context);
-                        },
-                      )
-                    ],
-                  );
-                });
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => AddGames()));
           }),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-
-          return Dismissible(
-            direction: DismissDirection.endToStart,
-            key: Key(item),
-            onDismissed: (direction) {
-              setState(() {
-                items.removeAt(index);
-              });
-            },
-            background: Container(
-              color: Colors.red,
-              padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.delete,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            ),
-            child: ListTile(
-              title: Text('$item'),
-              subtitle: Text("subtitle"),
-            ),
-          );
-        },
-      ),
+      //FIM BOTAO DE ADICIONAR
     );
   }
 }

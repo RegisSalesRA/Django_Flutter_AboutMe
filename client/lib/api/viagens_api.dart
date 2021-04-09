@@ -20,7 +20,7 @@ class ViagensProvider with ChangeNotifier {
     final response = await http.post('http://10.0.2.2:8000/api/v1/viagens/',
         headers: {"Content-Type": "application/json"},
         body: json.encode(my_viagem));
-    print(response);
+
     if (response.statusCode == 201) {
       my_viagem.id = json.decode(response.body)['id'];
       _my_viagem.add(my_viagem);
