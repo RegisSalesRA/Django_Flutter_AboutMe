@@ -1,30 +1,29 @@
-import 'package:client/api/testeapi.dart';
-import 'package:client/testando.dart';
+import 'package:client/api/viagens_api.dart';
+import 'package:client/model/viagem_model.dart';
+
 import 'package:flutter/material.dart';
-//import 'package:frontend_flutter/api/api.dart';
 
 import 'package:provider/provider.dart';
 
-class AddTodoScreen extends StatefulWidget {
+class AddViagem extends StatefulWidget {
   @override
-  _AddTodoScreenState createState() => _AddTodoScreenState();
+  _AddViagemState createState() => _AddViagemState();
 }
 
-class _AddTodoScreenState extends State<AddTodoScreen> {
+class _AddViagemState extends State<AddViagem> {
   final myDescNomeController = TextEditingController();
-  final myDescIdadeController = TextEditingController();
+  final myDescLocalController = TextEditingController();
   final myDescDescricaoController = TextEditingController();
 
   void onAdd() {
     final String nomeVal = myDescNomeController.text;
-    final String idadeVal = myDescIdadeController.text;
+    final String idadeVal = myDescLocalController.text;
     final String descricaoVal = myDescDescricaoController.text;
 
     if (nomeVal.isNotEmpty && descricaoVal.isNotEmpty && idadeVal.isNotEmpty) {
-      final MyDescription myDesc = MyDescription(
-          nome: nomeVal, descricao: descricaoVal, idade: idadeVal);
-      Provider.of<MyDescriptionProvider>(context, listen: false)
-          .addToDo(myDesc);
+      final ViagemModel myViagem =
+          ViagemModel(nome: nomeVal, descricao: descricaoVal, local: idadeVal);
+      Provider.of<ViagensProvider>(context, listen: false).addViagens(myViagem);
     }
   }
 
@@ -44,33 +43,33 @@ class _AddTodoScreenState extends State<AddTodoScreen> {
                 Icon(
                   Icons.featured_play_list_outlined,
                   size: 110.0,
-                  color: Colors.red,
+                  color: Colors.blue,
                 ),
                 TextField(
-                  style: TextStyle(color: Colors.red, fontSize: 20),
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
                   controller: myDescNomeController,
                   decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Colors.red),
+                      labelStyle: TextStyle(color: Colors.blue),
                       labelText: "Digite nome"),
                 ),
                 TextField(
-                  style: TextStyle(color: Colors.red, fontSize: 20),
-                  controller: myDescIdadeController,
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                  controller: myDescLocalController,
                   decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Colors.red),
-                      labelText: "Digite idade"),
+                      labelStyle: TextStyle(color: Colors.blue),
+                      labelText: "Digite Local"),
                 ),
                 TextField(
-                  style: TextStyle(color: Colors.red, fontSize: 20),
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
                   controller: myDescDescricaoController,
                   decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Colors.red),
+                      labelStyle: TextStyle(color: Colors.blue),
                       labelText: "Digite descricao"),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 30),
                   child: RaisedButton(
-                      color: Colors.red,
+                      color: Colors.blue,
                       child: Text("Confirmar",
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
