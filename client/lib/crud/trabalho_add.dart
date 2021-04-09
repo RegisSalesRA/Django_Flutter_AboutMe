@@ -1,29 +1,29 @@
-import 'package:client/api/viagens_api.dart';
-import 'package:client/model/viagem_model.dart';
+import 'package:client/api/trabalho_api.dart';
+
+import 'package:client/model/trabalho_model.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-class AddViagem extends StatefulWidget {
+class AddTrabalho extends StatefulWidget {
   @override
-  _AddViagemState createState() => _AddViagemState();
+  _AddTrabalhoState createState() => _AddTrabalhoState();
 }
 
-class _AddViagemState extends State<AddViagem> {
+class _AddTrabalhoState extends State<AddTrabalho> {
   final myDescNomeController = TextEditingController();
-  final myDescLocalController = TextEditingController();
   final myDescDescricaoController = TextEditingController();
 
   void onAdd() {
     final String nomeVal = myDescNomeController.text;
-    final String localVal = myDescLocalController.text;
     final String descricaoVal = myDescDescricaoController.text;
 
     if (nomeVal.isNotEmpty && descricaoVal.isNotEmpty) {
-      final ViagemModel myViagem =
-          ViagemModel(nome: nomeVal, descricao: descricaoVal, local: localVal);
-      Provider.of<ViagensProvider>(context, listen: false).addViagens(myViagem);
+      final TrabalhoModel myTrabalho =
+          TrabalhoModel(nome: nomeVal, descricao: descricaoVal);
+      Provider.of<TrabalhoProvider>(context, listen: false)
+          .addTrabalho(myTrabalho);
     }
   }
 
@@ -32,7 +32,7 @@ class _AddViagemState extends State<AddViagem> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Adicione uma tarefa"),
+        title: Text("Adicione um trabalho"),
       ),
       body: ListView(
         children: [
@@ -51,13 +51,6 @@ class _AddViagemState extends State<AddViagem> {
                   decoration: InputDecoration(
                       labelStyle: TextStyle(color: Colors.blue),
                       labelText: "Digite nome"),
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.blue, fontSize: 20),
-                  controller: myDescLocalController,
-                  decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Colors.blue),
-                      labelText: "Digite Local"),
                 ),
                 TextField(
                   style: TextStyle(color: Colors.blue, fontSize: 20),

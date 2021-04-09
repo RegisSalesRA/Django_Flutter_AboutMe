@@ -1,29 +1,29 @@
-import 'package:client/api/viagens_api.dart';
-import 'package:client/model/viagem_model.dart';
+import 'package:client/api/faculdade_api.dart';
+
+import 'package:client/model/faculdade_model.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-class AddViagem extends StatefulWidget {
+class AddFaculdade extends StatefulWidget {
   @override
-  _AddViagemState createState() => _AddViagemState();
+  _AddFaculdadeState createState() => _AddFaculdadeState();
 }
 
-class _AddViagemState extends State<AddViagem> {
+class _AddFaculdadeState extends State<AddFaculdade> {
   final myDescNomeController = TextEditingController();
-  final myDescLocalController = TextEditingController();
-  final myDescDescricaoController = TextEditingController();
+  final myDescCursoController = TextEditingController();
 
   void onAdd() {
     final String nomeVal = myDescNomeController.text;
-    final String localVal = myDescLocalController.text;
-    final String descricaoVal = myDescDescricaoController.text;
+    final String cursoVal = myDescCursoController.text;
 
-    if (nomeVal.isNotEmpty && descricaoVal.isNotEmpty) {
-      final ViagemModel myViagem =
-          ViagemModel(nome: nomeVal, descricao: descricaoVal, local: localVal);
-      Provider.of<ViagensProvider>(context, listen: false).addViagens(myViagem);
+    if (nomeVal.isNotEmpty && cursoVal.isNotEmpty) {
+      final FaculdadeModel myFaculdade =
+          FaculdadeModel(nome: nomeVal, curso: cursoVal);
+      Provider.of<FaculdadeProvider>(context, listen: false)
+          .addTrabalho(myFaculdade);
     }
   }
 
@@ -32,7 +32,7 @@ class _AddViagemState extends State<AddViagem> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Adicione uma tarefa"),
+        title: Text("Adicione um faculdade"),
       ),
       body: ListView(
         children: [
@@ -54,17 +54,10 @@ class _AddViagemState extends State<AddViagem> {
                 ),
                 TextField(
                   style: TextStyle(color: Colors.blue, fontSize: 20),
-                  controller: myDescLocalController,
+                  controller: myDescCursoController,
                   decoration: InputDecoration(
                       labelStyle: TextStyle(color: Colors.blue),
-                      labelText: "Digite Local"),
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.blue, fontSize: 20),
-                  controller: myDescDescricaoController,
-                  decoration: InputDecoration(
-                      labelStyle: TextStyle(color: Colors.blue),
-                      labelText: "Digite descricao"),
+                      labelText: "Digite curso"),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 30),

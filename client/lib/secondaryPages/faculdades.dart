@@ -1,89 +1,88 @@
+import 'package:client/api/faculdade_api.dart';
+import 'package:client/crud/faculdade_add.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class Faculdade extends StatefulWidget {
-  @override
-  _FaculdadeState createState() => _FaculdadeState();
-}
-
-class _FaculdadeState extends State<Faculdade> {
-  final items = List<String>.generate(5, (i) => "Item ${i + 1}");
-  final title = "Faculdades";
+class Faculdade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      //Never forget to put providader context
+      create: (context) => FaculdadeProvider(),
+      child: MaterialApp(
+        home: FaculdadeHomePage(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
+}
+
+class FaculdadeHomePage extends StatefulWidget {
+  @override
+  _FaculdadeHomePageState createState() => _FaculdadeHomePageState();
+}
+
+class _FaculdadeHomePageState extends State<FaculdadeHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    final faculdadeMy = Provider.of<FaculdadeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(title),
+        title: Text("trabalho Marcantes"),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      body: ListView.builder(
+        // faculdadeMy is final faculdadeMy get a valor from Provider
+        // my_faculdade is list from api value
+        itemCount: faculdadeMy.my_faculdade.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Dismissible(
+              direction: DismissDirection.endToStart,
+              key: Key(faculdadeMy.my_faculdade[index].nome),
+              onDismissed: (direction) {
+                faculdadeMy.deleteViagens(faculdadeMy.my_faculdade[index]);
+              },
+              background: Container(
+                color: Colors.red,
+                padding: EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+              child: ListTile(
+                title: Text(
+                  faculdadeMy.my_faculdade[index].nome,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(faculdadeMy.my_faculdade[index].curso,
+                    style: TextStyle(
+                        color: Colors.blue, fontStyle: FontStyle.italic)),
+              ));
+        },
+      ),
+
+//      BOTAO DE ADICIONAR
       floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.add,
-            color: Colors.white,
+            size: 30,
           ),
-          backgroundColor: Colors.blue,
           onPressed: () {
-            showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text("Adicionar Tarefa"),
-                    content: TextField(
-                      //     controller: _controllerTarefa,
-                      decoration:
-                          InputDecoration(labelText: "Digite sua tarefa"),
-                      onChanged: (text) {},
-                    ),
-                    actions: <Widget>[
-                      FlatButton(
-                        child: Text("Cancelar"),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      FlatButton(
-                        child: Text("Salvar"),
-                        onPressed: () {
-                          print("Salvar");
-                          Navigator.pop(context);
-                        },
-                      )
-                    ],
-                  );
-                });
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (ctx) => AddFaculdade()));
           }),
-      body: ListView.builder(
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-
-          return Dismissible(
-            direction: DismissDirection.endToStart,
-            key: Key(item),
-            onDismissed: (direction) {
-              setState(() {
-                items.removeAt(index);
-              });
-            },
-            background: Container(
-              color: Colors.red,
-              padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.delete,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            ),
-            child: ListTile(
-              title: Text('$item'),
-              subtitle: Text("subtitle"),
-            ),
-          );
-        },
-      ),
+      //FIM BOTAO DE ADICIONAR
     );
   }
 }
