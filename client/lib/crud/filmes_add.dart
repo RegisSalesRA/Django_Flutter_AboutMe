@@ -1,29 +1,31 @@
+import 'package:client/api/filmes_api.dart';
 import 'package:client/api/viagens_api.dart';
+import 'package:client/model/filmes_model.dart';
 import 'package:client/model/viagem_model.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-class AddViagem extends StatefulWidget {
+class AddFilme extends StatefulWidget {
   @override
-  _AddViagemState createState() => _AddViagemState();
+  _AddFilmeState createState() => _AddFilmeState();
 }
 
-class _AddViagemState extends State<AddViagem> {
+class _AddFilmeState extends State<AddFilme> {
   final myDescNomeController = TextEditingController();
-  final myDescLocalController = TextEditingController();
+  final myDesccategoriaController = TextEditingController();
   final myDescDescricaoController = TextEditingController();
 
   void onAdd() {
     final String nomeVal = myDescNomeController.text;
-    final String localVal = myDescLocalController.text;
+    final String idadeVal = myDesccategoriaController.text;
     final String descricaoVal = myDescDescricaoController.text;
 
-    if (nomeVal.isNotEmpty && descricaoVal.isNotEmpty && localVal.isNotEmpty) {
-      final ViagemModel myViagem =
-          ViagemModel(nome: nomeVal, descricao: descricaoVal, local: localVal);
-      Provider.of<ViagensProvider>(context, listen: false).addViagens(myViagem);
+    if (nomeVal.isNotEmpty && descricaoVal.isNotEmpty && idadeVal.isNotEmpty) {
+      final FilmesModel myFilmes = FilmesModel(
+          nome: nomeVal, descricao: descricaoVal, categoria: idadeVal);
+      Provider.of<FilmesProvider>(context, listen: false).addFilmes(myFilmes);
     }
   }
 
@@ -54,10 +56,10 @@ class _AddViagemState extends State<AddViagem> {
                 ),
                 TextField(
                   style: TextStyle(color: Colors.blue, fontSize: 20),
-                  controller: myDescLocalController,
+                  controller: myDesccategoriaController,
                   decoration: InputDecoration(
                       labelStyle: TextStyle(color: Colors.blue),
-                      labelText: "Digite Local"),
+                      labelText: "Digite categoria"),
                 ),
                 TextField(
                   style: TextStyle(color: Colors.blue, fontSize: 20),

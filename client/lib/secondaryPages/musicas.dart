@@ -16,6 +16,41 @@ class _MusicasState extends State<Musicas> {
         centerTitle: true,
         title: Text(title),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: FloatingActionButton(
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          backgroundColor: Colors.blue,
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: Text("Adicionar Tarefa"),
+                    content: TextField(
+                      //     controller: _controllerTarefa,
+                      decoration:
+                          InputDecoration(labelText: "Digite sua tarefa"),
+                      onChanged: (text) {},
+                    ),
+                    actions: <Widget>[
+                      FlatButton(
+                        child: Text("Cancelar"),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                      FlatButton(
+                        child: Text("Salvar"),
+                        onPressed: () {
+                          print("Salvar");
+                          Navigator.pop(context);
+                        },
+                      )
+                    ],
+                  );
+                });
+          }),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {

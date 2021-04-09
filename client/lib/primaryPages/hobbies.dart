@@ -45,7 +45,7 @@ class _HobbiesState extends State<Hobbies> {
           splashColor: Colors.blue, // splash color
           onTap: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Filme()));
+                .push(MaterialPageRoute(builder: (ctx) => Filmes()));
           }, // button pressed
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
