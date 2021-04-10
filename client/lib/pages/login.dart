@@ -1,6 +1,5 @@
+import 'package:client/pages/index.dart';
 import 'package:flutter/material.dart';
-
-import 'index.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,10 +11,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('images/background.jpeg'),
-                fit: BoxFit.cover)),
+        decoration: BoxDecoration(color: Colors.grey),
         padding: EdgeInsets.all(16),
         child: Center(
           child: SingleChildScrollView(
@@ -25,6 +21,7 @@ class _LoginState extends State<Login> {
                 Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
+                    //   controller: _controllerEmail,
                     autofocus: true,
                     keyboardType: TextInputType.emailAddress,
                     style: TextStyle(fontSize: 20),
@@ -38,6 +35,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 TextField(
+                  //     controller: _controllerSenha,
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   style: TextStyle(fontSize: 20),
@@ -66,13 +64,28 @@ class _LoginState extends State<Login> {
                       }),
                 ),
                 Center(
-                    child: GestureDetector(
-                        child: Text("Clique aqui para se cadastrar!",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold)),
-                        onTap: () {})),
+                  child: GestureDetector(
+                    child: Text("Não tem conta? cadastre-se!",
+                        style: TextStyle(color: Colors.white)),
+                    onTap: () {
+                      //        Navigator.push(
+                      //            context,
+                      //           MaterialPageRoute(
+                      //                builder: (context) => Cadastro()
+                      //           )
+                      //       );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 16),
+                  child: Center(
+                    child: Text(
+                      "awe",
+                      style: TextStyle(color: Colors.red, fontSize: 20),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
@@ -81,15 +94,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
-/*
-                Padding(
-                  padding: EdgeInsets.only(top: 16),
-                  child: Center(
-                    child: Text(
-                      "teste",
-                      style: TextStyle(color: Colors.red, fontSize: 20),
-                    ),
-                  ),
-                ),
-                */

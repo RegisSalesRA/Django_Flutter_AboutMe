@@ -10,13 +10,27 @@ class Index extends StatefulWidget {
 
 class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
   //SingleTickerProviderStateMixin controle das animações de pagina
-
+  List<String> itensMenu = ["Configurações", "Deslogar"];
   TabController _tabController;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this, initialIndex: 0);
+  }
+
+  _escolhaMenuItem(String itemEscolhido) {
+    switch (itemEscolhido) {
+      case "Configurações":
+        //   Navigator.pushNamed(context, "/configuracoes");
+        print("configuracao");
+        break;
+      case "Deslogar":
+//        _deslogarUsuario();
+// print("Deslogar")
+        break;
+    }
+    //print("Item escolhido: " + itemEscolhido );
   }
 
   @override
@@ -42,6 +56,21 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
             )
           ],
         ),
+        actions: [
+          PopupMenuButton<String>(
+            // Ação quando escolher a opção
+            onSelected: _escolhaMenuItem,
+            // Opções do menu
+            itemBuilder: (context) {
+              return itensMenu.map((String item) {
+                return PopupMenuItem<String>(
+                  value: item,
+                  child: Text(item),
+                );
+              }).toList();
+            },
+          )
+        ],
       ),
       body: TabBarView(
         controller: _tabController,
