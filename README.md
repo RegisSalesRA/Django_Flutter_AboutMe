@@ -4,7 +4,8 @@
 
 
 First Step:
-    make sure you have on virtual env
+
+    chacek if you using virtualenv enabled 
     source venv/<virtual name>/activate
     then
     pip3 install -r requirements.txt
@@ -37,7 +38,19 @@ Second Step:
 
     flutter run
 
-## Have fun =)
+## Login Page
 
     
-<img src="frontend_flutter/images/ReadmeLogo.png" alt="">
+<img src="server/imagens/Login.png" alt="">
+
+
+## Home Page
+
+
+<img src="server/imagens/Home.png" alt="">
+
+
+## One page from colleges
+
+
+<img src="server/imagens/Slide.png" alt="">
