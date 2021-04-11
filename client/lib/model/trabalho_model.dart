@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 //1 Criando a model
 class TrabalhoModel {
   int id;

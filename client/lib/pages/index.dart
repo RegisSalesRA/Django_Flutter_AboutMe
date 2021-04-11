@@ -1,6 +1,8 @@
+import 'package:client/pages/login.dart';
 import 'package:client/primaryPages/hobbies.dart';
 import 'package:client/primaryPages/home.dart';
 import 'package:client/primaryPages/professions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Index extends StatefulWidget {
@@ -26,11 +28,17 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
         print("configuracao");
         break;
       case "Deslogar":
-//        _deslogarUsuario();
-// print("Deslogar")
+        _deslogarUsuario();
+
         break;
     }
-    //print("Item escolhido: " + itemEscolhido );
+  }
+
+  _deslogarUsuario() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    await auth.signOut();
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   @override

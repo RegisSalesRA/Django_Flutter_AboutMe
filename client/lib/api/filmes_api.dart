@@ -1,7 +1,5 @@
-import 'dart:ui';
-
 import 'package:client/model/filmes_model.dart';
-import 'package:client/model/viagem_model.dart';
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -11,12 +9,15 @@ class FilmesProvider with ChangeNotifier {
     this.fetchTasks();
   }
 
+  // ignore: non_constant_identifier_names
   List<FilmesModel> _my_filme = [];
 
+  // ignore: non_constant_identifier_names
   List<FilmesModel> get my_filme {
     return [..._my_filme];
   }
 
+  // ignore: non_constant_identifier_names
   void addFilmes(FilmesModel my_filme) async {
     final response = await http.post('http://10.0.2.2:8000/api/v1/filmes/',
         headers: {"Content-Type": "application/json"},
@@ -29,6 +30,7 @@ class FilmesProvider with ChangeNotifier {
     }
   }
 
+  // ignore: non_constant_identifier_names
   void deleteFilmes(FilmesModel my_filme) async {
     final response =
         await http.delete('http://10.0.2.2:8000/api/v1/filmes/${my_filme.id}/');

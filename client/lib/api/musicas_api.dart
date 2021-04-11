@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:client/model/musicas_model.dart';
 
 import 'package:flutter/material.dart';
@@ -11,13 +9,16 @@ class MusicasProvider with ChangeNotifier {
     this.fetchTasks();
   }
 
+  // ignore: non_constant_identifier_names
   List<MusicasModel> _my_musica = [];
 
+  // ignore: non_constant_identifier_names
   List<MusicasModel> get my_musica {
     return [..._my_musica];
   }
 
 //Adicionar
+  // ignore: non_constant_identifier_names
   void addMusicas(MusicasModel my_musica) async {
     final response = await http.post('http://10.0.2.2:8000/api/v1/musicas/',
         headers: {"Content-Type": "application/json"},
@@ -31,6 +32,7 @@ class MusicasProvider with ChangeNotifier {
   }
 
 //Deletar
+  // ignore: non_constant_identifier_names
   void deleteViagens(MusicasModel my_musica) async {
     final response = await http
         .delete('http://10.0.2.2:8000/api/v1/musicas/${my_musica.id}/');

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 //1 Criando a model
 class FilmesModel {
   int id;

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ViagemModel {
   int id;
   final String nome;

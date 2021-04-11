@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:client/model/games_model.dart';
 
 import 'package:flutter/material.dart';
@@ -11,13 +9,16 @@ class GamesProvider with ChangeNotifier {
     this.fetchTasks();
   }
 
+  // ignore: non_constant_identifier_names
   List<GamesModel> _my_games = [];
 
+  // ignore: non_constant_identifier_names
   List<GamesModel> get my_games {
     return [..._my_games];
   }
 
 //Adicionar
+  // ignore: non_constant_identifier_names
   void addGames(GamesModel my_games) async {
     final response = await http.post('http://10.0.2.2:8000/api/v1/games/',
         headers: {"Content-Type": "application/json"},
@@ -31,6 +32,7 @@ class GamesProvider with ChangeNotifier {
   }
 
 //Deletar
+  // ignore: non_constant_identifier_names
   void deleteGames(GamesModel my_games) async {
     final response =
         await http.delete('http://10.0.2.2:8000/api/v1/gamess/${my_games.id}/');

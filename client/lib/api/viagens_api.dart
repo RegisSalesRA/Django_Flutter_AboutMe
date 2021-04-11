@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:client/model/viagem_model.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -10,12 +8,15 @@ class ViagensProvider with ChangeNotifier {
     this.fetchTasks();
   }
 
+  // ignore: non_constant_identifier_names
   List<ViagemModel> _my_viagem = [];
 
+  // ignore: non_constant_identifier_names
   List<ViagemModel> get my_viagem {
     return [..._my_viagem];
   }
 
+  // ignore: non_constant_identifier_names
   void addViagens(ViagemModel my_viagem) async {
     final response = await http.post('http://10.0.2.2:8000/api/v1/viagens/',
         headers: {"Content-Type": "application/json"},
@@ -28,6 +29,7 @@ class ViagensProvider with ChangeNotifier {
     }
   }
 
+  // ignore: non_constant_identifier_names
   void deleteViagens(ViagemModel my_viagem) async {
     final response = await http
         .delete('http://10.0.2.2:8000/api/v1/viagens/${my_viagem.id}/');

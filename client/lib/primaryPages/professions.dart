@@ -1,6 +1,5 @@
 import 'package:client/secondaryPages/faculdades.dart';
 import 'package:client/secondaryPages/jobs.dart';
-import 'package:client/secondaryPages/musicas.dart';
 import 'package:flutter/material.dart';
 
 class Professions extends StatefulWidget {

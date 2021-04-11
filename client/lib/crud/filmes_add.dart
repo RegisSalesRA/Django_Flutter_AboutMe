@@ -1,7 +1,5 @@
 import 'package:client/api/filmes_api.dart';
-import 'package:client/api/viagens_api.dart';
 import 'package:client/model/filmes_model.dart';
-import 'package:client/model/viagem_model.dart';
 
 import 'package:flutter/material.dart';
 

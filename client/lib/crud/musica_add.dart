@@ -1,8 +1,5 @@
 import 'package:client/api/musicas_api.dart';
-import 'package:client/api/viagens_api.dart';
 import 'package:client/model/musicas_model.dart';
-import 'package:client/model/viagem_model.dart';
-
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:client/model/faculdade_model.dart';
 
 import 'package:flutter/material.dart';
@@ -11,12 +9,15 @@ class FaculdadeProvider with ChangeNotifier {
     this.fetchTasks();
   }
 
+  // ignore: non_constant_identifier_names
   List<FaculdadeModel> _my_faculdade = [];
 
+  // ignore: non_constant_identifier_names
   List<FaculdadeModel> get my_faculdade {
     return [..._my_faculdade];
   }
 
+  // ignore: non_constant_identifier_names
   void addFaculdade(FaculdadeModel my_faculdade) async {
     final response = await http.post('http://10.0.2.2:8000/api/v1/faculdades/',
         headers: {"Content-Type": "application/json"},
@@ -29,6 +30,7 @@ class FaculdadeProvider with ChangeNotifier {
     }
   }
 
+  // ignore: non_constant_identifier_names
   void deleteFaculdade(FaculdadeModel my_faculdade) async {
     final response = await http
         .delete('http://10.0.2.2:8000/api/v1/faculdades/${my_faculdade.id}/');
