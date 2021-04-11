@@ -50,7 +50,7 @@ Second Step:
 <img src="server/imagens/Home.png" alt="">
 
 
-## One page from colleges
+## College page with slide iten
 
 
 <img src="server/imagens/Slide.png" alt="">
