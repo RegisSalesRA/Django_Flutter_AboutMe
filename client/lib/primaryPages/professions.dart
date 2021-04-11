@@ -17,8 +17,7 @@ class _ProfessionsState extends State<Professions> {
         InkWell(
             splashColor: Colors.blue, // splash color
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => Faculdade()));
+              Navigator.pushNamed(context, "/faculdades");
             }, // button pressed
             child: Container(
               decoration: BoxDecoration(
@@ -49,8 +48,7 @@ class _ProfessionsState extends State<Professions> {
         InkWell(
           splashColor: Colors.blue, // splash color
           onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (ctx) => Trabalho()));
+            Navigator.pushNamed(context, "/jobs");
           }, // button pressed
           child: Container(
             decoration: BoxDecoration(

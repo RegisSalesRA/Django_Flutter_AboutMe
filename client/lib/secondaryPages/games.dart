@@ -32,7 +32,7 @@ class _GamesHomePageState extends State<GamesHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Viagens Marcantes"),
+        title: Text("Games preferidas"),
       ),
       body: ListView.builder(
         // gamesMy is final gamesMy get a valor from Provider

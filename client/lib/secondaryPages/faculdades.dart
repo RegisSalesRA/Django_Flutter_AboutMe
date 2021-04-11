@@ -31,7 +31,7 @@ class _FaculdadeHomePageState extends State<FaculdadeHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("trabalho Marcantes"),
+        title: Text("Faculdades"),
       ),
       body: ListView.builder(
         // faculdadeMy is final faculdadeMy get a valor from Provider

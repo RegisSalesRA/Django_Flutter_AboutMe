@@ -32,7 +32,7 @@ class _MusicasHomePageState extends State<MusicasHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Viagens Marcantes"),
+        title: Text("Musicas preferidas"),
       ),
       body: ListView.builder(
         // musicasMy is final musicasMy get a valor from Provider

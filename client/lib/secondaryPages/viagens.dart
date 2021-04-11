@@ -31,7 +31,7 @@ class _ViagemHomePageState extends State<ViagemHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Viagens Marcantes"),
+        title: Text("Viagens preferidas"),
       ),
       body: ListView.builder(
         // viagensMy is final viagensMy get a valor from Provider

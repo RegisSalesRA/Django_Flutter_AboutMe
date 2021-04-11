@@ -30,7 +30,7 @@ class _FilmesHomePageState extends State<FilmesHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Viagens Marcantes"),
+        title: Text("Filmes preferidos"),
       ),
       body: ListView.builder(
         itemCount: filmesMy.my_filme.length,

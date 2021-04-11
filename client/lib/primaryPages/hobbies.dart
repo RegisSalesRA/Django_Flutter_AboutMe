@@ -19,8 +19,7 @@ class _HobbiesState extends State<Hobbies> {
         InkWell(
             splashColor: Colors.blue, // splash color
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => Viagens()));
+              Navigator.pushNamed(context, "/viagens");
             }, // button pressed
             child: Container(
               decoration: BoxDecoration(
@@ -51,8 +50,7 @@ class _HobbiesState extends State<Hobbies> {
         InkWell(
             splashColor: Colors.blue, // splash color
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => Filmes()));
+              Navigator.pushNamed(context, "/filmes");
             }, // button pressed
             child: Container(
               decoration: BoxDecoration(
@@ -83,8 +81,7 @@ class _HobbiesState extends State<Hobbies> {
         InkWell(
             splashColor: Colors.blue, // splash color
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => Musicas()));
+              Navigator.pushNamed(context, "/musicas");
             }, // button pressed
             child: Container(
               decoration: BoxDecoration(
@@ -115,8 +112,7 @@ class _HobbiesState extends State<Hobbies> {
         InkWell(
             splashColor: Colors.blue, // splash color
             onTap: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (ctx) => Games()));
+              Navigator.pushNamed(context, "/games");
             }, // button pressed
             child: Container(
               decoration: BoxDecoration(

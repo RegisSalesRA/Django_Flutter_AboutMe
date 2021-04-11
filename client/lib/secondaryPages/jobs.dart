@@ -31,7 +31,7 @@ class _TrabalhoHomePageState extends State<TrabalhoHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("trabalho Marcantes"),
+        title: Text("Historico de trabalhos"),
       ),
       body: ListView.builder(
         // trabalhoMy is final trabalhoMy get a valor from Provider
