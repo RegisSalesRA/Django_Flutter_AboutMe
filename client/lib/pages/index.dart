@@ -24,7 +24,7 @@ class _IndexState extends State<Index> with SingleTickerProviderStateMixin {
   _escolhaMenuItem(String itemEscolhido) {
     switch (itemEscolhido) {
       case "Configurações":
-        //   Navigator.pushNamed(context, "/configuracoes");
+        Navigator.pushNamed(context, "/configuracoes");
         print("configuracao");
         break;
       case "Deslogar":

@@ -164,32 +164,13 @@ class _ConfiguracoesState extends State<Configuracoes> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 8),
-                  child: TextField(
-                    controller: _controllerNome,
-                    autofocus: true,
-                    keyboardType: TextInputType.text,
-                    style: TextStyle(fontSize: 20),
-                    /*onChanged: (texto){
-                      _atualizarNomeFirestore(texto);
-                    },*/
-                    decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                        hintText: "Nome",
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(32))),
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsets.only(top: 16, bottom: 10),
                   child: RaisedButton(
                       child: Text(
-                        "Salvar",
+                        "Mudar imagem",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                      color: Colors.green,
+                      color: Colors.blue,
                       padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32)),
