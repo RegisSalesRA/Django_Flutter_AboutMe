@@ -61,13 +61,15 @@ class _FaculdadeHomePageState extends State<FaculdadeHomePage> {
                 title: Text(
                   faculdadeMy.my_faculdade[index].nome,
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       color: Colors.blue,
                       fontWeight: FontWeight.bold),
                 ),
                 subtitle: Text(faculdadeMy.my_faculdade[index].curso,
                     style: TextStyle(
-                        color: Colors.blue, fontStyle: FontStyle.italic)),
+                        fontSize: 25,
+                        color: Colors.blue,
+                        fontStyle: FontStyle.italic)),
               ));
         },
       ),

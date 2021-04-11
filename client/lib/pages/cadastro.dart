@@ -81,11 +81,13 @@ class _CadastroState extends State<Cadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Cadastro"),
-      ),
       body: Container(
-        decoration: BoxDecoration(color: Color(0xff075E54)),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/background.jpeg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(16),
         child: Center(
           child: SingleChildScrollView(
@@ -93,11 +95,11 @@ class _CadastroState extends State<Cadastro> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(bottom: 32),
-                  child: Image.asset(
-                    "images/background.jpeg",
-                    width: 200,
-                    height: 150,
+                  padding: EdgeInsets.all(20),
+                  child: Icon(
+                    Icons.question_answer,
+                    color: Colors.white,
+                    size: 200,
                   ),
                 ),
                 Padding(
@@ -151,7 +153,7 @@ class _CadastroState extends State<Cadastro> {
                         "Cadastrar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                      color: Colors.green,
+                      color: Colors.blue,
                       padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32)),

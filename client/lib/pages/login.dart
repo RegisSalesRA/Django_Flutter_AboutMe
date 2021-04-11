@@ -79,7 +79,12 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(color: Color(0xff075E54)),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/background.jpeg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(16),
         child: Center(
           child: SingleChildScrollView(
@@ -87,13 +92,12 @@ class _LoginState extends State<Login> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(bottom: 32),
-                  child: Image.asset(
-                    "images/background.jpeg",
-                    width: 200,
-                    height: 150,
-                  ),
-                ),
+                    padding: EdgeInsets.only(bottom: 32),
+                    child: Icon(
+                      Icons.account_circle,
+                      size: 200,
+                      color: Colors.white,
+                    )),
                 Padding(
                   padding: EdgeInsets.only(bottom: 8),
                   child: TextField(
@@ -130,7 +134,7 @@ class _LoginState extends State<Login> {
                         "Entrar",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                      color: Colors.green,
+                      color: Colors.blue,
                       padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32)),
@@ -141,7 +145,10 @@ class _LoginState extends State<Login> {
                 Center(
                   child: GestureDetector(
                     child: Text("cadastre-se!",
-                        style: TextStyle(color: Colors.white)),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold)),
                     onTap: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Cadastro()));
