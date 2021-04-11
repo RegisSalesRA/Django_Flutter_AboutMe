@@ -5,9 +5,11 @@
 
 First Step:
 
-    chacek if you using virtualenv enabled 
+    chacek if you are using virtualenv if you not just use this command below
+    python -m venv <name virtual env>
     source venv/<virtual name>/activate
     then
+    install dependencies
     pip3 install -r requirements.txt
         
 Second Step:
